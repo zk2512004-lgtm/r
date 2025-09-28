@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zahid Iqbal | Front-End Developer Portfolio</title>
+
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    header {
+      position: relative;
+      background: url('images/cover.jpg') no-repeat center center/cover;
+      height: 60vh;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    header .header-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    header h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    header h2 {
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    section {
+      padding: 60px 20px;
+    }
+
+    .portfolio-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+
+    .portfolio-img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #343a40;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header h2 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with Cover Photo -->
+  <header>
+    <div class="header-content">
+      <h1>Zahid Iqbal</h1>
+      <h2>I'm a Front-End Developer</h2>
+      <p>
+        Email: <a href="mailto:zk2512004@gmail.com" class="text-info">zk2512004@gmail.com</a> |
+        WhatsApp: <a href="https://wa.me/923279480680" class="text-info">03279480680</a>
+      </p>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="container text-center">
+    <h2 class="mb-4">About Me</h2>
+    <p class="lead">
+      I’m a passionate front-end developer with experience in HTML, CSS, JavaScript, and Bootstrap. I enjoy creating beautiful, responsive, and interactive web interfaces.
+    </p>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="container">
+    <h2 class="text-center mb-5">My Projects</h2>
+    <div class="row" id="portfolioGrid">
+      <!-- Dynamic Projects Rendered Here -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Zahid Iqbal</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Dynamic Project Script -->
+  <script>
+    const projects = [
+      { title: "Project 1", image: "images/project1.jpg", desc: "Responsive website using HTML/CSS." },
+      { title: "Project 2", image: "images/project2.jpg", desc: "Interactive JS-based form." },
+      { title: "Project 3", image: "images/project3.jpg", desc: "Bootstrap landing page design." },
+      { title: "Project 4", image: "images/project4.jpg", desc: "Animated gallery UI." },
+      { title: "Project 5", image: "images/project5.jpg", desc: "Portfolio with modern layout." }
+    ];
+
+    const grid = document.getElementById("portfolioGrid");
+
+    projects.forEach(project => {
+      const col = document.createElement("div");
+      col.className = "col-md-4 mb-4";
+
+      col.innerHTML = `
+        <div class="card shadow-sm h-100">
+          <img src="${project.image}" alt="${project.title}" class="portfolio-img card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">${project.title}</h5>
+            <p class="card-text">${project.desc}</p>
+          </div>
+        </div>
+      `;
+
+      grid.appendChild(col);
+    });
+  </script>
+</body>
+</html>
